@@ -1,5 +1,6 @@
 // #include <bits/stdc++.h>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main()
@@ -15,21 +16,7 @@ int main()
         {
             cin >> arr[i];
         }
-        for (int i = 0; i < x; ++i)
-        {
-
-            for (int j = i + 1; j < x; ++j)
-            {
-
-                if (arr[i] > arr[j])
-                {
-
-                    int a = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = a;
-                }
-            }
-        }
+        sort(arr,arr+x);
         int count = 0;
         if (x % 2 != 0)
         {
