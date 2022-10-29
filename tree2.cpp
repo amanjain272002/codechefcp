@@ -1,22 +1,26 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <set>
 using namespace std;
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
+    cin >> t;
     while (t--)
     {
         int n;
-        cin>>n;
-        long int A[100],x=-1;
-        for (int i = 0; i < n; i++) 
+        cin >> n;
+        set<int> a;
+
+        for (int i = 0; i < n; i++)
         {
-            cin>>A[i];
-            x= max(x,A[i]);
+            int k;
+            cin >> k;
+            if (k != 0)
+                a.insert(k);
         }
-        cout<<x<<endl;
+        cout << a.size() << endl;
     }
-    
+
     return 0;
 }
