@@ -6,41 +6,32 @@ using namespace std;
 int main(){
     int t;
     cin>>t;
-    for (int i = 0; i < t; i++)
+    while (t--)
     {
-        int n,count=0;
+        int n,one = 0,zero = 0;
+        cin>>n;
         string s;
-        cin>>n>>s;
-        
-        for (int i = 0; i < n-1; i++)
+        cin>>s;
+        for (int i = 0; i < n; i++)
         {
-            if (s[i]==s[i+1])
+            if (s[i]=='1')
             {
-                count++;
-            }
-        }
-        if(count==0){
-            cout<<n<<endl;
-            
-        }
-        else if (count==n-1)
-        {
-            cout<<"1"<<endl;
-            
-        }
-        else{
-            if ((n<=3)&&(count!=0)&&(count!=n-1))
-            {
-                cout<<n<<endl;
-               
+                one++;
             }
             else{
-                cout<<n-count<<endl;
-                
+                zero++;
             }
-            
         }
+        if (one == zero)
+        {
+            cout<<one + zero<<endl;
+        }
+        else{
+            cout<<(min(one,zero)*2)+1<<endl;
+        }
+        
     }
+    
     
     return 0;
 }
