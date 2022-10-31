@@ -13,7 +13,7 @@ int main()
     }
     for (long int i = 0; i < n; i++)
     {
-        string s, str,ans = "BAD";;
+        string s, str,ans = "Bad";
         cin >> s;
 
         for (long int l = 0; l < s.length(); l++)
@@ -22,7 +22,7 @@ int main()
             {
                 if (s.length() >= 47 && s.length()<=50)
                 {
-                    ans = "GOOD";
+                    ans = "Good";
                     break;
                 }
 
@@ -31,12 +31,12 @@ int main()
                     str = s.substr(l, a[i].length());
                     if (str == a[i])
                     {
-                        ans = "GOOD";
+                        ans = "Good";
                         break;
                     }
                 }
             }
-            if (ans == "GOOD")
+            if (ans == "Good")
             {
                 break;
             }
