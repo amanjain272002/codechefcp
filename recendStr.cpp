@@ -8,10 +8,10 @@ int main()
     cin >> t;
     while (t--)
     {
-        string s, l, r;
-        int count = 0;
+        string s, l, r, ans = "NO";
+        long int i = 0;
         cin >> s;
-        for (long int i = 0; i < s.length(); i++)
+        for (i = 0; i < s.length(); i++)
         {
             if (i == 0)
             {
@@ -22,7 +22,7 @@ int main()
                 l[i - 1] = s[i];
             }
         }
-        for (long int i = 0; i < s.length(); i++)
+        for (i = 0; i < s.length(); i++)
         {
             if (i == s.length() - 1)
             {
@@ -32,22 +32,6 @@ int main()
             {
                 r[i + 1] = s[i];
             }
-        }
-
-        for (long int i = 0; i < s.length(); i++)
-        {
-            if (l[i] == r[i])
-            {
-                count++;
-            }
-        }
-        if (count == s.length())
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
         }
     }
 
