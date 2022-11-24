@@ -1,6 +1,5 @@
 #include <iostream>
-#include <map>
-
+#include <string>
 using namespace std;
 
 int main()
@@ -9,39 +8,34 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, k, count = 0, c = 0;
+        long int n, k, count = 0, flag = 0;
         cin >> n >> k;
-        char s, b;
+        string s;
         cin >> s;
-        if (s == '*')
-        {
-            count++;
-            b = s;
-        }
-        else
-        {
-            b = s;
-        }
 
-        for (int i = 1; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
-            cin >> s;
-            if (b == s && b == '*')
+            if (s[i] == '*')
             {
                 count++;
+                if (count == k)
+                {
+                    flag = 1;
+                    break;
+                }
             }
-            if (count+1 >= k)
+            else
             {
-                cout << "YES" << endl;
-                c = 1;
-                break;
+                count = 0;
             }
-
-            // cout<<b<<" "<<i<<" "<<s<<endl;
-            b = s;
+            
         }
 
-        if (c == 0)
+        if (flag == 1)
+        {
+            cout << "YES" << endl;
+        }
+        else
         {
             cout << "NO" << endl;
         }
