@@ -6,59 +6,29 @@ int main()
 {
     int t;
     cin >> t;
+    cin.ignore();
     while (t--)
     {
-        int i = 0, j = 0, count = 0;
-        string s, ans = "";
-        cin.ignore();
-        getline(cin, s);
-        // cout<<s<<endl;
-        // cout<<s.length()<<endl;
-
-        while (i < s.length())
+        string str;
+        getline(cin, str);
+        string s = "";
+        int key = 0;
+        for (int i = 0; i < str.size(); i++)
         {
-            if (s[i] == ' ')
+            if (str[i] == ' ')
             {
-                count++;
-            }
-            i++;
-        }
-        while (count--)
-        {
-            int k = 0;
-            while (j < s.length())
-            {
-                if (k == 0)
-                {
-                    s[j] = toupper(s[j]);
-                    cout << s[j] << endl;
-                    ans = ans + s[j];
-                    ans.append(".");
-                    k = 1;
-                }
-                else if (s[j] == ' ')
-                {
-                    j = j + 1;
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-                j++;
+                s = s + (char)toupper(str[key]) + ". ";
+                key = i + 1;
             }
         }
-        s[j] = toupper(s[j]);
-        ans = ans + s[j];
-        j++;
-        while (j < s.length())
+        for (int i = key; i < str.size(); i++)
         {
-            s[j] = tolower(s[j]);
-            ans = ans + s[j];
-            j++;
+            if (i == key)
+                s = s + (char)toupper(str[i]);
+            else
+                s = s + (char)tolower(str[i]);
         }
-        cout << ans << endl;
+        cout << s << endl;
     }
-
     return 0;
 }
