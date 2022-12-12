@@ -8,36 +8,35 @@ int main()
     cin >> t;
     while (t--)
     {
-        long int n, x, sum = 0, count = 0, index;
+        long int n, x, flag = 0, sum = 0;
         cin >> n >> x;
         long int a[n];
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
         }
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n - 1; i++)
         {
-            if (sum <= x)
+            if (a[i + 1] < a[i])
             {
-                sum = sum + a[i];
-                index = i;
+                if (a[i + 1] + a[i] > x)
+                {
+                    flag = 1;
+                    break;
+                }
+                else
+                {
+                    swap(a[i], a[i + 1]);
+                }
             }
         }
-        sort(a, a + index);
-        for (int i = 1; i < n; i++)
+        if (flag == 0)
         {
-            if (a[i] < a[i - 1])
-            {
-                count = 1;
-            }
-        }
-        if (count == 1)
-        {
-            cout << "NO" << endl;
+            cout << "YES" << endl;
         }
         else
         {
-            cout << "YES" << endl;
+            cout << "NO" << endl;
         }
     }
 
