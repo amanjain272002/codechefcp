@@ -1,30 +1,31 @@
-#include<iostream>
+#include <iostream>
+#include <unordered_set>
 using namespace std;
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
+    cin >> t;
     while (t--)
     {
-        int a[4],count = 0;
-        for (int i = 0; i < 4; i++)
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+        if (a == b && a == c && a == d)
         {
-            cin>>a[i];
+            cout << 0 << endl;
         }
-        for (int i = 1; i < 4; i++)
+        else if ((a == b && a == c && a != d) || (b == c && b == d && b != a) ||
+                 (a == b && b == d && a != c) || (b == d && b == a && b != c) ||
+                 (a == c && a == d && a != b))
         {
-            if (a[i]!=a[i-1])
-            {
-                count++;
-            }
+            cout << 1 << endl;
         }
-        if (count == 3)
+
+        else
         {
-            cout<<count%2+1<<endl;
+            cout << 2 << endl;
         }
-        else{
-        cout<<count%2<<endl;}
     }
-    
+
     return 0;
 }
