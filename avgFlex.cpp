@@ -1,37 +1,39 @@
-#include<iostream>
-#include<set>
+#include <iostream>
+#include <map>
 using namespace std;
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
+    cin >> t;
     while (t--)
     {
-        int n,a;
-        cin>>n;
-        set<int> s;
+        int n, a;
+        cin >> n;
+        map<int, int> m;
         for (int i = 0; i < n; i++)
         {
-            cin>>a;
-            s.insert(a);
+            cin >> a;
+            m[a]++;
         }
-        if (s.size()==n)
+        if (m.size() == 1)
         {
-            if (n%2==0)
-            {
-                cout<<s.size()/2<<endl;
-            }
-            else
-            {
-                cout<<s.size()/2+1<<endl;
-            }
+            cout << n << endl;
         }
         else
         {
-            /* code */
+            int ans = 0;
+
+            auto i = m.begin();
+            advance(i, m.size() / 2);
+            for (; i != m.end(); i++)
+            {
+                ans = ans + i->second;
+            }
+
+            cout << ans << endl;
         }
-        
     }
-    
+
     return 0;
 }
