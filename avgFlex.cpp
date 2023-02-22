@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include<algorithm>
 using namespace std;
 
 int main()
@@ -8,31 +8,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, a;
-        cin >> n;
-        map<int, int> m;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a;
-            m[a]++;
-        }
-        if (m.size() == 1)
-        {
-            cout << n << endl;
-        }
-        else
-        {
-            int ans = 0;
-
-            auto i = m.begin();
-            advance(i, m.size() / 2);
-            for (; i != m.end(); i++)
-            {
-                ans = ans + i->second;
-            }
-
-            cout << ans << endl;
-        }
+        int n,current=0;
+	    cin>>n;
+	    int a[n];
+	    for(int i=0;i<n;i++){
+	        cin>>a[i];
+	    }
+	    sort(a,a+n);
+	    for(int i=n/2;i>=0;i--){
+	        if(a[i] != a[n/2]){
+	            current=i+1;
+	            break;
+	        }
+	    }
+	    cout<<n-current<<endl;
     }
 
     return 0;
