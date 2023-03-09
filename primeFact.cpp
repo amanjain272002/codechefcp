@@ -7,30 +7,46 @@ int main()
     cin >> t;
     while (t--)
     {
-        int x, y, cnt = 0;
-        cin >> x >> y;
+        int n, y, c = 0;
+        cin >> n >> y;
 
-        if (x % 3 == 0)
+        if (n % 2 == 0)
         {
-            x = x + 3;
-            y = y - x;
-            cnt++;
+            int a = y - n;
+            c = a / 2;
+            if (a % 2)
+            {
+                c++;
+            }
+            cout << c << endl;
         }
-        else if (x % 5 == 0)
+        else
         {
-            x = x + 5;
-            y = y - x;
-            cnt++;
-        }
-        else if (x % 7 == 0)
-        {
-            x = x + 7;
-            y = y - x;
-            cnt++;
-        }
+            if (n % 3 == 0)
+            {
+                n += 3;
+                c++;
+            }
+            else if (n % 5 == 0)
+            {
+                n += 5;
+                c++;
+            }
+            else if (n % 7 == 0)
+            {
+                c++;
+                n += 7;
+            }
+            int a = y - n;
+            c += a / 2;
+            if (a % 2)
+            {
+                c++;
+            }
 
-        cnt = cnt + y / 2;
-        cout << cnt << endl;
+            cout << c << endl;
+        }
     }
+
     return 0;
 }
