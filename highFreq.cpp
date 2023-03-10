@@ -6,16 +6,7 @@ using namespace std;
 
 void solve()
 {
-    int n, a, mx = 0, nx = 0;
-
-
-
-
-
-
-
-
-    
+    int n, a, mx = 0, nx = 0;    
     cin >> n;
     unordered_map<int, int> m;
 
