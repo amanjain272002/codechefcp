@@ -7,19 +7,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        int a, b, c;
+        int a, b, c, check = 0;
         cin >> a >> b >> c;
-        if (a > b && b > c)
+        for (int i = 1; i < 100; i++)
         {
-            cout << a << endl;
+            if ((a ^ i) < (b ^ i) && (b ^ i) < (c ^ i))
+            {
+                cout << i << endl;
+                check = 1;
+                break;
+            }
         }
-        else if (a < b && b < c)
+        if (check == 0)
         {
-            cout << c + 1 << endl;
-        }
-        else
-        {
-            cout << "-1" << endl;
+            cout << -1 << endl;
         }
     }
 
