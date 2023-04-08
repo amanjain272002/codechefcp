@@ -1,7 +1,27 @@
 #include <iostream>
-#include<map>
-#include<algorithm>
+#include <string>
 using namespace std;
+
+void solve()
+{
+    long int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    for (int i = 0; i < n;)
+    {
+        if (s[i] == s[i + 1] && s[i + 1] == s[i + 2])
+        {
+            s.erase(i, 2);
+            n = n-2;
+        }
+        else
+        {       
+            i++;
+        }
+    }
+    cout << s << endl;
+}
 
 int main()
 {
@@ -9,54 +29,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n,mx=0,cnt=0;
-        cin>>n;
-        char k;
-        string p="";
-        string s;
-        cin>>s;
-        map<char,int>m;
-        for (int i = 0; i < n; i++)
-        {
-            m[s[i]]++;
-            mx = max(mx,m[s[i]]);
-            if (mx<m[s[i]])
-            {
-                mx = m[s[i]];
-                k = s[i];
-            }
-            
-        }
-        if (mx%2!=0)
-        {
-            p = p + s[0];
-            for (int i = 1; i < n; i++)
-            {
-                if (s[i-1]!=s[i])
-                {
-                    p = p + s[i];
-                }
-            }
-        }
-        else
-        {
-            p = p + s[0];
-            for (int i = 1; i < n; i++)
-            {
-                if (k == s[i] && cnt == 0)
-                {
-                    p = p + s[i];
-                    cnt++;
-                }
-                if (s[i-1]!=s[i])
-                {
-                    p = p + s[i];
-                }
-            }
-        }
-        cout<<p<<endl;
-        
-        
+        solve();
     }
 
     return 0;
