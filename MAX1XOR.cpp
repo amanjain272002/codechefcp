@@ -1,53 +1,51 @@
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <algorithm>
 using namespace std;
 
-void maxOneCount()
+void solve()
 {
     int n;
     cin >> n;
-    string s, x = "";
-    cin >> s;
+    char s[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> s[i];
+    }
+
+    char prev;
+    prev = '0';
     int cnt = 0;
-    if (s[n - 1] == '0' )
+    for (int i = 0; i < n - 1; i++)
     {
-        x[n - 1] = '1';
-        cnt++;
-    }
-    else if (s[n - 1] == '1')
-    {
-        x[n - 1] = '0';
-    }
-    
-    for (int i = n - 2; i >= 0; i--)
-    {
-        if (s[i] == '0')
+        if (s[i] != prev)
         {
-            if (x[i + 1] == '1')
-            {
-                x[i] = '1';
-                cnt++;
-            }
-            else 
-            {
-                x[i] = '0';
-            }
+            prev = '1';
+            cnt++;
         }
         else
         {
-            if (x[i + 1] == '1')
-            {
-                x[i] = '0';
-            }
-            else
-            {
-                x[i] = '1';
-                cnt++;
-            }
+            prev = '0';
         }
     }
 
-    cout << cnt << endl;
+    prev = '1';
+    int cn = 1;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (s[i] != prev)
+        {
+            prev = '1';
+            cn++;
+        }
+        else
+        {
+            prev = '0';
+        }
+    }
+
+    cout << max(cnt, cn) << endl;
 }
 
 int main()
@@ -56,6 +54,6 @@ int main()
     cin >> t;
     while (t--)
     {
-        maxOneCount();
+        solve();
     }
 }
