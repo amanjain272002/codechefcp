@@ -6,38 +6,38 @@ using namespace std;
 
 void ab_plus_C()
 {
-    lng int x, f = 0, c = 0,a;
-    lng num , num1 ;
+    lng int x, a, b, c;
     cin >> x;
     if (x == 1)
     {
         cout << "-1" << endl;
     }
-    else if (x == 2)
+    else if (x <= 1000000)
     {
-        cout << "1 "
-             << "1 "
-             << "1" << endl;
+        cout << "1 "<< "1 "<< x - 1 << endl;
     }
-
     else
     {
-        
-        num = sqrtl(x);
-        f = floorl(num);
-        c = ceill(num);
-        if (f * c == x)
+        a = b = (int)sqrt(x);
+        if (x - a * b == 0)
         {
-            x = x - 1;
-            num1 = sqrtl(x);
-            f = floorl(num1);
-            c = ceill(num1);
-            cout << f << " " << c << " " << (x + 1) - (f * c) << endl;
+            a--;
+        }
+        else if (a * b > x)
+        {
+            a--;
+            b--;
         }
         else
         {
-            cout << f << " " << c << " " << x - (f * c) << endl;
+            a++;
+            if (a * b > x)
+            {
+                a--;
+            }
         }
+        c = x - a * b;
+        cout << a << " " << b << " " << c << endl;
     }
 }
 
