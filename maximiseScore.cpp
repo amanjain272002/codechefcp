@@ -3,19 +3,23 @@
 #include <cmath>
 using namespace std;
 
-void maximise_score(long int n)
+void solve(long int n)
 {
-    long int alice, bob, mn = 11000;
+    long int a[n], mn;
     for (int i = 0; i < n; i++)
     {
-        if (i % 2 != 0)
+        cin >> a[i];
+    }
+    mn = abs(a[0] - a[1]);
+    for (int i = 2; i < n; i++)
+    {
+        if (i == n - 1)
         {
-            cin >> bob;
-            mn = min(mn, abs(alice - bob));
+            mn = min(mn, abs(a[i] - a[i - 1]));
         }
         else
         {
-            cin >> alice;
+            mn = min(mn, max(abs(a[i] - a[i - 1]), abs(a[i] - a[i + 1])));
         }
     }
     cout << mn << endl;
@@ -29,8 +33,6 @@ int main()
     {
         long int n;
         cin >> n;
-        maximise_score(n);
+        solve(n);
     }
-
-    return 0;
 }
