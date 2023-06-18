@@ -10,74 +10,41 @@ void srk()
     for (int i = 0; i < n; i++)
     {
         cin >> om;
-        if (om == 0)
+        if (om != 0)
         {
+            c++;
             o = max(o, c);
-            c = 0;
         }
         else
         {
-            c++;
+            c = 0;
         }
     }
     ll addy, a = 0, cn = 0;
     for (int i = 0; i < n; i++)
     {
         cin >> addy;
-        if (addy == 0)
-        {
-            a = max(a, cn);
-            cn = 0;
-        }
-        else
+        if (addy != 0)
         {
             cn++;
-        }
-    }
-    if (cn == c)
-    {
-        if (a > o)
-        {
-            cout << "Addy" << endl;
-        }
-        else if (a < o)
-        {
-            cout << "Om" << endl;
+            a = max(a, cn);
         }
         else
         {
-            cout << "Draw" << endl;
+            cn = 0;
         }
     }
-    else if (cn > c)
+    if (a > o)
     {
-        if (cn > o)
-        {
-            cout << "Addy" << endl;
-        }
-        else if (cn < o)
-        {
-            cout << "Om" << endl;
-        }
-        else
-        {
-            cout << "Draw" << endl;
-        }
+        cout << "Addy" << endl;
+    }
+    else if (a < o)
+    {
+        cout << "Om" << endl;
     }
     else
     {
-        if (c > a)
-        {
-            cout << "Om" << endl;
-        }
-        else if (c < a)
-        {
-            cout << "Addy" << endl;
-        }
-        else
-        {
-            cout << "Draw" << endl;
-        }
+        cout << "Draw" << endl;
     }
 }
 
