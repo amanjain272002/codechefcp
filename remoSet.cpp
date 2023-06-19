@@ -6,29 +6,33 @@ using namespace std;
 
 void rsp()
 {
-    ll n, a, clc = 0, sm = 1;
+    ll n, evens = 0, a;
     cin >> n;
-    ll md = powl(10, 9) + 7;
-    ll prf[n + 1] = {0};
+    ll md = 1000000007;
     for (int i = 0; i < n; i++)
     {
         cin >> a;
-        prf[i + 1] = a + prf[i];
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        if ((prf[i] - prf[i - 1]) % 2 == 0)
+        if (a % 2 == 0)
         {
-            clc++;
+            evens++;
         }
     }
-    sm += (clc * (clc + 1) / 2) % md;
-    cout << sm << endl;
+    ll ans = 1;
+    for (int i = 0; i < evens; i++)
+    {
+        ans = ans*2;
+        ans = ans%md;
+    }
+    if (evens == n)
+    {
+        ans--;
+    }
+    cout << ans << endl;
 }
 
 int main()
 {
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
