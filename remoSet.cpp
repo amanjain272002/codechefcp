@@ -8,7 +8,7 @@ void rsp()
 {
     ll n, evens = 0, a;
     cin >> n;
-    ll md = 1000000007;
+    ll md = pow(10,7);
     for (int i = 0; i < n; i++)
     {
         cin >> a;
