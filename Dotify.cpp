@@ -21,7 +21,6 @@ void doti_play()
     int sum = 0;
     for (int i = s.size() - 1; i >= 0; i--)
     {
-        // cout<<s[i]<<" ";
         if (k > 0 and s[i] != 0)
         {
             flag = 1;
