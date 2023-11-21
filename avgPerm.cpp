@@ -9,16 +9,27 @@ int main()
     {
         int n;
         cin >> n;
-        for (int i = 1; i <= n / 2; i++)
+        int arr[n], l = 0, r = n - 1, i = n;
+        while (l <= r)
         {
-            cout << n - i + 1 << " " << i << " ";
+            if (l == r)
+            {
+                arr[l] = n;
+            }
+            else
+            {
+                arr[l] = n;
+                arr[r] = n - 1;
+                n -= 2;
+            }
+            l++;
+            r--;
         }
-        if (n % 2 != 0)
+        for (int j = 0; j < i; j++)
         {
-            cout << n / 2 + 1;
+            cout << arr[j] << " ";
         }
         cout << endl;
     }
-
     return 0;
 }
