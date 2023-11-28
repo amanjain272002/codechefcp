@@ -4,6 +4,11 @@ using namespace std;
 void solve(){
     string s;
     cin>>s;
+    int arr[s.length()];
+    for (int i = 0; i < s.length()-1; i++)
+    {
+        
+    }
     
 }
 
